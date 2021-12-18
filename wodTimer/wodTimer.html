@@ -41,27 +41,34 @@
       <div id="timer__content" class="hidden"></div>
       
       <div id="stopwatch__content" class="hidden">
-        <h2>StopWatch</h2>
-        <p id="stop-full-record">
-          <span id="hours">00</span>
-          <span>:</span>
-          <span id="minutes">00</span>
-          <span>:</span>
-          <span id="seconds">00</span>
-          <span>.</span>
-          <span id="tenMilis">00</span>
-        </p>
-        <div>
-          <button id="startBtn">START</button> <!-- 시작 -->
-          <button id="stopBtn" class="hidden">STOP</button> <!-- 스톱 -->
-          <button id="recordBtn">Record</button> <!-- 레코드 -->
-          <button id="resetBtn">RESET</button> <!-- 리셋 -->
+        <div class="SW-container">
+          <div class="SW-container1">
+            <h2>Stop-Watch</h2>
+            <p id="stop-full-record">
+              <span id="hours">00</span>
+              <span>:</span>
+              <span id="minutes">00</span>
+              <span>:</span>
+              <span id="seconds">00</span>
+              <span>.</span>
+              <span id="tenMilis">00</span>
+            </p>
+            <div>
+              <button id="startBtn">START</button> <!-- 시작 -->
+              <button id="stopBtn" class="hidden">STOP</button> <!-- 스톱 -->
+              <button id="recordBtn">Record</button> <!-- 레코드 -->
+              <button id="resetBtn">RESET</button> <!-- 리셋 -->
+            </div>
+          </div>
+          <div class="SW-container2">
+            <h2>R E C O R D</h2>
+            <div>
+              <ul id="testRecordList"></ul> <!-- 기록 저장 -->
+            </div>
+          </div>
         </div>
-        <div>
-          <ul id="testRecordList"></ul> <!-- 기록 저장 -->
-        </div>
-
       </div>
+
       <div id="tabata__clock__content" class="hidden"></div>
     </div>
 
