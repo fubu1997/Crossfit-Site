@@ -96,12 +96,14 @@ a {
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: 25px;
 }
 
 .home__menu1 {
   width: 25%;
   height: 80%;
   margin: auto;
+  padding-top: 5%;
   border: 1px solid white;
   border-radius: 10px;
   background: url(/home/img/home1.png) no-repeat center bottom;
@@ -112,6 +114,7 @@ a {
   width: 25%;
   height: 80%;
   margin: auto;
+  padding-top: 5%;
   border: 1px solid white;
   border-radius: 10px;
   background: url(/home/img/home2.png) no-repeat center bottom;
@@ -122,6 +125,7 @@ a {
   width: 25%;
   height: 80%;
   margin: auto;
+  padding-top: 5%;
   border: 1px solid white;
   border-radius: 10px;
   background: url(/home/img/home3.png) no-repeat center bottom;
