@@ -39,20 +39,26 @@
 <!-- --------------------------------------------------------------- -->
       <div id="alarm__content" class="hidden"></div>
       <div id="timer__content" class="hidden"></div>
+      
       <div id="stopwatch__content" class="hidden">
         <h2>StopWatch</h2>
-        <h1>
+        <p id="stop-full-record">
+          <span id="hours">00</span>
+          <span>:</span>
           <span id="minutes">00</span>
+          <span>:</span>
           <span id="seconds">00</span>
+          <span>.</span>
           <span id="tenMilis">00</span>
-        </h1>
-        <div>
-          <ul id="testRecordList"></ul> <!-- 기록 저장 -->
-        </div>
+        </p>
         <div>
           <button id="startBtn">START</button> <!-- 시작 -->
-          <button id="stopBtn">STOP</button> <!-- 스톱 -->
+          <button id="stopBtn" class="hidden">STOP</button> <!-- 스톱 -->
+          <button id="recordBtn">Record</button> <!-- 레코드 -->
           <button id="resetBtn">RESET</button> <!-- 리셋 -->
+        </div>
+        <div>
+          <ul id="testRecordList"></ul> <!-- 기록 저장 -->
         </div>
 
       </div>
@@ -68,7 +74,7 @@
 
 
     <script src="/wodTimer/JS/clock.js"></script>
-    <script src="/wodTimer/JS/stopWatch.js"></script>
     <script src="/wodTimer/JS/showContent.js"></script>
+    <script src="/wodTimer/JS/stopWatch.js"></script>
 </body>
 </html>
