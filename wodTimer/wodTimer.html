@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type = "images/ico" href="/home/img/favicon.ico">
+  <title>BOX AND WOD's</title>
+  <link rel="stylesheet" href="/wodTimer/wodTimerStyle.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Domine&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 메뉴바 -->
+    <nav id="navbar">
+      <div id="navbar__logo">
+        <a href="/home/home.html"><img src="/home/img/main.png" alt="Box and Wod's"></a>
+        <p>BOX AND WOD's<br>Crossfit wod</p>
+      </div>
+      <div id="navbar__menu">
+        <a class="navbar__menu__item" href="#">Play Wod's</a>
+        <a class="navbar__menu__item" href="#">Wod Timer</a>
+        <a class="navbar__menu__item" href="#">kind of Wod's</a>
+      </div>
+    </nav>
+
+    <!-- 메인 -->
+    <div class="today">
+      <h2>Current Date</h2>
+      <div id="jsDate"></div>
+      <div id="jsTime"></div>
+    </div>
+    <h1>00:00:00</h1>
+    <form class="clcok">
+      <div class="alarm"></div>
+      <div class="timer"></div>
+      <div class="stopwatch">
+        <div>
+          <span class="Min">00</span> <!-- 분 -->
+          <span>:</span>
+          <span class="Sec">00</span> <!-- 초 -->
+          <span>.</span>
+          <span class="Milisec">00</span> <!-- 밀리초 -->
+        </div>
+        <div>
+          <ul id="testRecordList"></ul> <!-- 기록 저장 -->
+        </div>
+        <div>
+          <button id="startBtn">START</button> <!-- 시작 -->
+          <button id="stopBtn">STOP</button> <!-- 스톱 -->
+          <button id="resetBtn">RESET</button> <!-- 리셋 -->
+        </div>
+
+      </div>
+      <div class="tabata clock"></div>
+    </form>
+
+    <script src="/wodTimer/JS/clock.js"></script>
+    <script src="/wodTimer/JS/stopWatch.js"></script>
+</body>
+</html>
