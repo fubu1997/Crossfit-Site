@@ -38,7 +38,21 @@
       <div class="tabata__clock">Tabata</div>
 <!-- --------------------------------------------------------------- -->
       <div id="alarm__content" class="hidden"></div>
-      <div id="timer__content" class="hidden"></div>
+
+      <div id="timer__content" class="hidden">
+        <h2>T I M E R</h2>
+        <p>
+          <span id="hour">00</span>
+          <span>:</span>
+          <span id="minute">00</span>
+          <span>:</span>
+          <span id="sec">00</span>
+        </p>
+
+        <button id="startBtn">Start</button>
+        <button id="stopBtn" class="hidden">Stop</button>
+        <button id="resetBtn">Reset</button>
+      </div>
       
       <div id="stopwatch__content" class="hidden">
         <div class="SW-container">
@@ -83,5 +97,6 @@
     <script src="/wodTimer/JS/clock.js"></script>
     <script src="/wodTimer/JS/showContent.js"></script>
     <script src="/wodTimer/JS/stopWatch.js"></script>
+    <script src="/wodTimer/JS/timer.js"></script>
 </body>
 </html>
