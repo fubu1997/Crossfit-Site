@@ -182,3 +182,36 @@ a {
   margin: 0;
   padding: 0;
 }
+
+/* --------------------------------------------- */
+/* Timer */
+
+#timer__content {
+  background-color: rgb(36, 36, 36);
+  width: 80%;
+  height: 100%;
+  margin: auto;
+}
+#timer__content h2 {
+  margin: 10px 0;
+  font-size: 60px;
+}
+
+#setting {
+  width: 50%;
+  height: 20%;
+  margin: auto;
+  border: 3px solid beige;
+  border-radius: 10px;
+}
+
+#Timer__print {
+  width: 50%;
+  height: 20%;
+  margin: 20px auto;
+  border: 3px solid beige;
+  border-radius: 10px;
+  font-size: 20px;
+  text-align: center;
+  align-items: center;
+}

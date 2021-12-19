@@ -9,6 +9,9 @@ const timerStartBtn = document.querySelector('#timer-startBtn');
 const timerStopBtn = document.querySelector('#timer-stopBtn');
 const timerResetBtn = document.querySelector('#timer-resetBtn');
 
+const TimerAudio = new Audio();
+TimerAudio.src = "/wodTimer/audio/alarm.mp3";
+
 let timerInterval;
 
 //셋팅 버튼 로직
@@ -21,14 +24,14 @@ function TimersetTimer() {
   numberSetHour = parseInt(setHour);
   numberSetMin = parseInt(setMin);
   numberSetSec = parseInt(setSec);
+  timerStartBtn.classList.remove('hidden');
+  timerSetting.classList.add('hidden');
   //출력
   TimerPrint();
   // 셋팅후 start부분
   timerStartBtn.addEventListener('click', function() {
     clearInterval(timerInterval);
     timerInterval = setInterval(TimerstartTimer, 1000);
-    stopBtn.classList.remove('hidden');
-    startBtn.classList.add('hidden');
   });
 }
 
@@ -64,6 +67,23 @@ function TimerstartTimer() {
   }
   timerStopBtn.classList.remove('hidden');
   timerStartBtn.classList.add('hidden');
+
+  function TimerFinish() {
+    clearInterval(timerInterval);
+    numberSetHour = 0;
+    numberSetMin = 0;
+    numberSetSec = 0;
+    timerSecText.innerHTML = "0" + numberSetSec;
+    timerMinText.innerHTML = "0" + numberSetMin;
+    timerHourText.innerHTML = "0" + numberSetHour;
+    TimerAudio.play();
+    timerStopBtn.classList.add('hidden');
+    timerStartBtn.classList.add('hidden');
+    timerSetting.classList.remove('hidden');
+  }
+  if(numberSetHour <1 && numberSetMin <1 && numberSetSec < 1) {
+    TimerFinish();
+  }
 }
 
 
@@ -84,7 +104,8 @@ function TimerresetTimer() {
     TimerPrint();
     clearInterval(timerInterval);
     timerStopBtn.classList.add('hidden');
-    timerStartBtn.classList.remove('hidden');
+    timerStartBtn.classList.add('hidden');
+    timerSetting.classList.remove('hidden');
 }
 
 

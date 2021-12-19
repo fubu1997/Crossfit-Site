@@ -47,21 +47,25 @@
       <form id="timer__content" class="hidden" onsubmit="return false">
         <h2>T I M E R</h2>
         <div id="setting">
+          <p>Setting Box</p>
           <input  type="number" id="setting-hour" min="00" max="24" value="00"> :
           <input type="number" id="setting-minute" min="00" max="60" value="00"> :
           <input type="number" id="setting-seconds" min="00" max="60" value="00">
         </div>
 
-        <p>
-          <span id="timer-hours">00 h</span>
-          <span>:</span>
-          <span id="timer-min">00 min</span>
-          <span>:</span>
-          <span id="timer-sec">00 sec</span>
-        </p>
+        <div id="Timer__print">
+          <p>Timer Clock</p>
+          <p>
+            <span id="timer-hours">00 h</span>
+            <span>:</span>
+            <span id="timer-min">00 min</span>
+            <span>:</span>
+            <span id="timer-sec">00 sec</span>
+          </p>
+        </div>
 
         <button id="timer-setting">Setting</button>
-        <button id="timer-startBtn">Start</button>
+        <button id="timer-startBtn" class="hidden">Start</button>
         <button id="timer-stopBtn" class="hidden">Stop</button>
         <button id="timer-resetBtn">Reset</button>
       </form>
