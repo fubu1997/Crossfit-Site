@@ -7,7 +7,7 @@ function getDate() {
   const year = today.getFullYear();
   const month = String(today.getMonth() + 1).padStart(2, "0");
   const day = String(today.getDate()).padStart(2, "0");
-  jsDate.innerText = `${year} / ${month} / ${day}`
+  jsDate.innerText = `${year}. ${month}. ${day} /`
 } 
 
 function getTime() {
