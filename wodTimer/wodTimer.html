@@ -98,32 +98,44 @@
               <h2>Break</h2>
               <p>00 : 00</p>
             </div>
+            <div class="tabata__timeleft">
+              <h2>Time Left</h2>
+              <p>00 : 00</p>
+            </div>
             <div class="tabata__round">
               <h2>Round</h2>
-              <p>0 / 0</p>
+              <p>
+                <span class="currentRound">00</span>
+                <span> / </span>
+                <span class="AllRound">00</span>
+              </p>
             </div>
           </div>
-          <div class="tabata__setting">
-            <div id="tabata__timeOn">
+          <form class="tabata__setting">
+            <div>
               <p>Time on</p>
-              <input type="number">
+              <input type="number" id="tabata__timeOnMin" min="00" max="60" value="00"> :
+              <input type="number" id="tabata__timeOnSec" min="00" max="60" value="00">
+
             </div>
-            <div class="tabata__timeOff">
+            <div>
               <p>Time off</p>
-              <input type="number">
+              <input type="number" id="tabata__timeOffMin" min="00" max="60" value="00"> :
+              <input type="number" id="tabata__timeOffSec" min="00" max="60" value="00">
             </div>
-            <div class="tabata__setRound">
+            <div>
               <p>Rounds</p>
-              <input type="number">
+              <input type="number" id="tabata__setRound" min="00" max="1000" value="00" required>
             </div>
-          </div>
+          </form>
         </div>
 
         <!-- tabata Btn -->
         <div class="tabata__btn">
-          <button class="tabata__start">START</button>
-          <button class="tabata__stop">PAUSE</button>
-          <button class="tabata__reset">RESET</button>
+          <button type="button" id="tabata__setting" onclick="setTabataClock();">Setting</button>
+          <button type="button" id="tabata__start" onclick="tabataStart();">START</button>
+          <button id="tabata__stop">PAUSE</button>
+          <button id="tabata__reset">RESET</button>
         </div>
       </div>
     </div>
@@ -140,5 +152,6 @@
     <script src="/wodTimer/JS/showContent.js"></script>
     <script src="/wodTimer/JS/stopWatch.js"></script>
     <script src="/wodTimer/JS/timer.js"></script>
+    <script src="/wodTimer/JS/tabata.js"></script>
 </body>
 </html>
