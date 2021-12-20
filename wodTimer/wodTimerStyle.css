@@ -273,3 +273,56 @@ a {
   border-radius: 50px;
   font-size: 150%;
 }
+
+/* ------------------------------------------------------ */
+/* Tabata */
+
+#tabata__clock__content {
+  width: 80%;
+  height: 100%;
+  margin: 0%;
+  padding: 0;
+  background-color: rgb(36, 36, 36);
+  flex-direction: column;
+}
+
+#tabata__container {
+  width: 100%;
+  height: 80%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabata__content {
+  width: 40%;
+  height: 50%;
+  margin: 0 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid beige;
+  border-radius: 10px;
+}
+
+.tabata__break {
+  width: 45%;
+  height: 60%;
+  border: 1px solid beige;
+  margin: 0 2% 0 3%;
+  padding: 1%;
+}
+
+.tabata__round {
+  width: 45%;
+  height: 60%;
+  border: 1px solid beige;
+  margin: 0 3% 0 2%;
+}
+
+.tabata__btn {
+  width: 100%;
+  height: 20%;
+}

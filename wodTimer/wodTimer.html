@@ -35,9 +35,9 @@
       <div class="timer">Timer</div>
       <div class="stopwatch">Stop-Watch</div>
       <div class="tabata__clock">Tabata</div>
+
 <!-- --------------------------------------------------------------- -->
       <div id="alarm__content" class="hidden"></div>
-
       <form id="timer__content" class="hidden" onsubmit="return false">
         <h2>T I M E R</h2>
         <div id="setting">
@@ -46,7 +46,6 @@
           <input type="number" id="setting-minute" min="00" max="60" value="00"> :
           <input type="number" id="setting-seconds" min="00" max="60" value="00">
         </div>
-
         <div id="Timer__print">
           <p>Timer Clock</p>
           <p>
@@ -57,18 +56,11 @@
             <span id="timer-sec">00 sec</span>
           </p>
         </div>
-
         <button id="timer-setting">Setting</button>
         <button id="timer-startBtn" class="hidden">Start</button>
         <button id="timer-stopBtn" class="hidden">Stop</button>
         <button id="timer-resetBtn">Reset</button>
       </form>
-      
-
-
-
-
-
       <div id="stopwatch__content" class="hidden">
         <div class="SW-container">
           <div class="SW-container1">
@@ -98,7 +90,42 @@
         </div>
       </div>
 
-      <div id="tabata__clock__content" class="hidden"></div>
+
+      <div id="tabata__clock__content" class="hidden">
+        <div id="tabata__container">
+          <div class="tabata__content">
+            <div class="tabata__break">
+              <h2>Break</h2>
+              <p>00 : 00</p>
+            </div>
+            <div class="tabata__round">
+              <h2>Round</h2>
+              <p>0 / 0</p>
+            </div>
+          </div>
+          <div class="tabata__setting">
+            <div id="tabata__timeOn">
+              <p>Time on</p>
+              <input type="number">
+            </div>
+            <div class="tabata__timeOff">
+              <p>Time off</p>
+              <input type="number">
+            </div>
+            <div class="tabata__setRound">
+              <p>Rounds</p>
+              <input type="number">
+            </div>
+          </div>
+        </div>
+
+        <!-- tabata Btn -->
+        <div class="tabata__btn">
+          <button class="tabata__start">START</button>
+          <button class="tabata__stop">PAUSE</button>
+          <button class="tabata__reset">RESET</button>
+        </div>
+      </div>
     </div>
 
       <!-- 푸터 -->
