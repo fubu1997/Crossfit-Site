@@ -25,6 +25,7 @@ const taAllRound = document.querySelector('.AllRound');
 
 //interval var
 let tabataInterval;
+let taCurrentRoundFisrt = 1;
 
 //반복 글자
 //Content Hidden All
@@ -43,7 +44,7 @@ function tabataShowContentAll() {
 function tabataPrintTime() {
   taTimeLeftClock.innerHTML = `${setTimeOnMin<10?`0${setTimeOnMin}`:setTimeOnMin} : ${setTimeOnSec<10?`0${setTimeOnSec}`:setTimeOnSec}`
   taTimeBreakClock.innerHTML = `${setTimeOffMin<10?`0${setTimeOffMin}`:setTimeOnMin} : ${setTimeOffSec<10?`0${setTimeOffSec}`:setTimeOffSec}`
-  taCurrentRound.innerHTML = "0"+ 0;
+  taCurrentRound.innerHTML = `${taCurrentRoundFisrt<10?`0${taCurrentRoundFisrt}`:taCurrentRoundFisrt}`
   taAllRound.innerHTML = `${setRound<10?`0${setRound}`:setRound}`
 }
 
@@ -66,31 +67,30 @@ function setTabataClock() {
 
   tabataPrintTime();
 }
-
-
+// button Logic
 function tabataStart() {
   tabataStartText();
 }
 
+// --------------------------------------------
 function tabataStop() {
-  tabataStopLogic();
+  
 }
+// -------------------------------------------------
 
 function tabataReset() {
   setTimeOnMin = 0;
   setTimeOnSec = 0;
   setTimeOffMin = 0;
   setTimeOffSec = 0;
+  taCurrentRoundFisrt = 0;
   setRound = 0;
 
   tabataPrintTime();
-  clearInterval();
 }
 
-
-
-//타바타 타이머 시작 로직
-
+//Tabata Timer Start Logic
+//N1. print 5,4,3,2,1 in Content
 function tabataStartText() {
   tabataHiddenContentAll();
   tabataFisrtStartBox.classList.remove('hidden');
@@ -107,8 +107,7 @@ function tabataStartText() {
     }
   }, 1000);
 }
-
-
+//N2. Print Time Left Show the Content
 function tabataTimeLeft() {
   tabataShowContentAll();
   tabataFisrtStartBox.classList.add('hidden');
@@ -125,10 +124,9 @@ function tabataTimeLeft() {
       tabataBreak();
     }
   }, 1000)
+  setTabataClock();
 }
-
-
-// --------------------------------------------
+//N3. Print Break Show the Content
 function tabataBreak() {
   let tabataBreakStart = setInterval(function() {
     setTimeOffSec--;
@@ -139,13 +137,18 @@ function tabataBreak() {
       tabataPrintTime();
     }
     if(setTimeOffMin <= 0 && setTimeOffSec <= 0) {
-      console.log('hhh');
       clearInterval(tabataBreakStart);
+      tabataRoundUp();
     }
   }, 1000)
 }
-// -------------------------------------------------
-
-function tabataStopLogic() {
-  
+//N4. Round Up or End logic
+function tabataRoundUp() {
+  if(taCurrentRoundFisrt == setRound) {
+    tabataReset();
+  } else {
+    taCurrentRoundFisrt++;
+    tabataPrintTime();
+    tabataTimeLeft();
+  }
 }
