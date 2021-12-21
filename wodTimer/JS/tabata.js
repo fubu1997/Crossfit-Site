@@ -49,11 +49,12 @@ function tabataPrintTime() {
 }
 
 
-// logic
+// button Logic
 // setClock
 function setTabataClock() {
   tabataSettingBtn.classList.add('hidden');
   tabataStartBtn.classList.remove('hidden');
+  tabataStopBtn.classList.add('hidden');
   stringTimeOnMin = tabataTimeOnMin.value;
   stringTimeOnSec = tabataTimeOnSec.value;
   stringTimeOffMin = tabataTimOffMin.value;
@@ -69,7 +70,7 @@ function setTabataClock() {
 
   tabataPrintTime();
 }
-// button Logic
+
 function tabataStart() {
   tabataStartBtn.classList.add('hidden');
   tabataStopBtn.classList.remove('hidden');
@@ -126,7 +127,6 @@ function tabataStart() {
   }
 }
 
-// --------------------------------------------
 function tabataStop() {
   tabataStartBtn.classList.remove('hidden');
   tabataStopBtn.classList.add('hidden');
@@ -134,7 +134,6 @@ function tabataStop() {
   clearInterval(tabataTimeLeftStart);
   clearInterval(tabataBreakStart);
 }
-// -------------------------------------------------
 
 function tabataReset() {
   tabataContentBox.classList.add('tabataActive');
