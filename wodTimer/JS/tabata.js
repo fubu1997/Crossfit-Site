@@ -52,6 +52,8 @@ function tabataPrintTime() {
 // logic
 // setClock
 function setTabataClock() {
+  tabataSettingBtn.classList.add('hidden');
+  tabataStartBtn.classList.remove('hidden');
   stringTimeOnMin = tabataTimeOnMin.value;
   stringTimeOnSec = tabataTimeOnSec.value;
   stringTimeOffMin = tabataTimOffMin.value;
@@ -69,16 +71,81 @@ function setTabataClock() {
 }
 // button Logic
 function tabataStart() {
-  tabataStartText();
+  tabataStartBtn.classList.add('hidden');
+  tabataStopBtn.classList.remove('hidden');
+  if(tabataContentBox.classList.contains('tabataActive')) {
+    clearInterval(tabataStartTextInterval);
+    tabataStartText();
+  }
+  if(tabataFisrtStartBox.classList.contains('tabataActive')) {
+    clearInterval(tabataStartTextInterval);
+    tabataStartTextInterval = setInterval(function() {
+      taStartNumber--;
+      taFirstStartH2.innerHTML = `${taStartNumber}`;
+  
+      if(taStartNumber <= 0) {
+        clearInterval(tabataStartTextInterval);
+        tabataFisrtStartBox.classList.remove('tabataActive');
+        tabataTimeLeft();
+      }
+    }, 1000)
+  }
+  if(tabataTimeLeftBox.classList.contains('tabataActive')) {
+    clearInterval(tabataTimeLeftStart);
+    tabataTimeLeftStart = setInterval(function(){
+      setTimeOnSec--;
+      tabataPrintTime();
+      if(setTimeOnSec < 0) {
+        setTimeOnSec = 59;
+        setTimeOnMin--;
+        tabataPrintTime();
+      }
+      if(setTimeOnMin <= 0 && setTimeOnSec <= 0) {
+        clearInterval(tabataTimeLeftStart);
+        tabataTimeLeftBox.classList.remove('tabataActive');
+        tabataBreak();
+      }
+    }, 1000)
+  }
+  if(tabataBreakBox.classList.contains('tabataActive')) {
+    clearInterval(tabataBreakStart);
+    tabataBreakStart = setInterval(function() {
+      setTimeOffSec--;
+      tabataPrintTime();
+      if(setTimeOffSec < 0) {
+        setTimeOffSec = 59;
+        setTimeOffMin--;
+        tabataPrintTime();
+      }
+      if(setTimeOffMin <= 0 && setTimeOffSec <= 0) {
+        clearInterval(tabataBreakStart);
+        tabataBreakBox.classList.remove('tabataActive');
+        tabataRoundUp();
+      }
+    }, 1000)
+  }
 }
 
 // --------------------------------------------
 function tabataStop() {
-  
+  tabataStartBtn.classList.remove('hidden');
+  tabataStopBtn.classList.add('hidden');
+  clearInterval(tabataStartTextInterval)
+  clearInterval(tabataTimeLeftStart);
+  clearInterval(tabataBreakStart);
 }
 // -------------------------------------------------
 
 function tabataReset() {
+  tabataContentBox.classList.add('tabataActive');
+  tabataFisrtStartBox.classList.remove('tabataActive');
+  tabataTimeLeftBox.classList.remove('tabataActive');
+  tabataBreakBox.classList.remove('tabataActive');
+
+
+  tabataSettingBtn.classList.remove('hidden');
+  tabataStartBtn.classList.add('hidden');
+  tabataStopBtn.classList.add('hidden');
   setTimeOnMin = 0;
   setTimeOnSec = 0;
   setTimeOffMin = 0;
@@ -86,32 +153,49 @@ function tabataReset() {
   taCurrentRoundFisrt = 0;
   setRound = 0;
 
+  tabataFisrtStartBox.classList.add('hidden');
+  tabataBreakBox.classList.remove('hidden');
+  tabataTimeLeftBox.classList.remove('hidden');
+  tabataRoundBox.classList.remove('hidden');
+
+  clearInterval(tabataStartTextInterval);
+  clearInterval(tabataTimeLeftStart);
+  clearInterval(tabataBreakStart);
   tabataPrintTime();
 }
 
+
 //Tabata Timer Start Logic
+let tabataStartTextInterval;
+let tabataTimeLeftStart;
+let tabataBreakStart;
+
 //N1. print 5,4,3,2,1 in Content
 function tabataStartText() {
   tabataHiddenContentAll();
+  tabataContentBox.classList.remove('tabataActive');
+  tabataFisrtStartBox.classList.add('tabataActive');
   tabataFisrtStartBox.classList.remove('hidden');
   let tabataStartNumber = 5;
   taStartNumber = parseInt(tabataStartNumber);
 
-  var tabataStartTextInterval = setInterval(function() {
+    tabataStartTextInterval = setInterval(function() {
     taStartNumber--;
     taFirstStartH2.innerHTML = `${taStartNumber}`;
 
     if(taStartNumber <= 0) {
       clearInterval(tabataStartTextInterval);
+      tabataFisrtStartBox.classList.remove('tabataActive');
       tabataTimeLeft();
     }
-  }, 1000);
+  }, 1000)
 }
 //N2. Print Time Left Show the Content
 function tabataTimeLeft() {
   tabataShowContentAll();
+  tabataTimeLeftBox.classList.add('tabataActive');
   tabataFisrtStartBox.classList.add('hidden');
-  let tabataTimeLeftStart = setInterval(function(){
+    tabataTimeLeftStart = setInterval(function(){
     setTimeOnSec--;
     tabataPrintTime();
     if(setTimeOnSec < 0) {
@@ -121,6 +205,7 @@ function tabataTimeLeft() {
     }
     if(setTimeOnMin <= 0 && setTimeOnSec <= 0) {
       clearInterval(tabataTimeLeftStart);
+      tabataTimeLeftBox.classList.remove('tabataActive');
       tabataBreak();
     }
   }, 1000)
@@ -128,7 +213,8 @@ function tabataTimeLeft() {
 }
 //N3. Print Break Show the Content
 function tabataBreak() {
-  let tabataBreakStart = setInterval(function() {
+    tabataBreakBox.classList.add('tabataActive');
+    tabataBreakStart = setInterval(function() {
     setTimeOffSec--;
     tabataPrintTime();
     if(setTimeOffSec < 0) {
@@ -138,6 +224,7 @@ function tabataBreak() {
     }
     if(setTimeOffMin <= 0 && setTimeOffSec <= 0) {
       clearInterval(tabataBreakStart);
+      tabataBreakBox.classList.remove('tabataActive');
       tabataRoundUp();
     }
   }, 1000)
