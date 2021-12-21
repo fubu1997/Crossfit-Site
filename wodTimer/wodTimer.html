@@ -94,6 +94,9 @@
       <div id="tabata__clock__content" class="hidden">
         <div id="tabata__container">
           <div class="tabata__content">
+            <div id="tabata__firstStart" class="hidden">
+              <h2>5</h2>
+            </div>
             <div class="tabata__break">
               <h2>Break</h2>
               <p>00 : 00</p>
@@ -135,7 +138,7 @@
           <button type="button" id="tabata__setting" onclick="setTabataClock();">Setting</button>
           <button type="button" id="tabata__start" onclick="tabataStart();">START</button>
           <button id="tabata__stop">PAUSE</button>
-          <button id="tabata__reset">RESET</button>
+          <button type="button" id="tabata__reset" onclick="tabataReset();">RESET</button>
         </div>
       </div>
     </div>
