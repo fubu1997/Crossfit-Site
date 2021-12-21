@@ -27,6 +27,7 @@ const taAllRound = document.querySelector('.AllRound');
 let tabataInterval;
 let taCurrentRoundFisrt = 1;
 
+//-------------------------------------------------------
 //반복 글자
 //Content Hidden All
 function tabataHiddenContentAll() {
@@ -47,14 +48,12 @@ function tabataPrintTime() {
   taCurrentRound.innerHTML = `${taCurrentRoundFisrt<10?`0${taCurrentRoundFisrt}`:taCurrentRoundFisrt}`
   taAllRound.innerHTML = `${setRound<10?`0${setRound}`:setRound}`
 }
+//-------------------------------------------------------
 
-
+//-------------------------------------------------------
 // button Logic
 // setClock
 function setTabataClock() {
-  tabataSettingBtn.classList.add('hidden');
-  tabataStartBtn.classList.remove('hidden');
-  tabataStopBtn.classList.add('hidden');
   stringTimeOnMin = tabataTimeOnMin.value;
   stringTimeOnSec = tabataTimeOnSec.value;
   stringTimeOffMin = tabataTimOffMin.value;
@@ -70,10 +69,7 @@ function setTabataClock() {
 
   tabataPrintTime();
 }
-
 function tabataStart() {
-  tabataStartBtn.classList.add('hidden');
-  tabataStopBtn.classList.remove('hidden');
   if(tabataContentBox.classList.contains('tabataActive')) {
     clearInterval(tabataStartTextInterval);
     tabataStartText();
@@ -125,26 +121,27 @@ function tabataStart() {
       }
     }, 1000)
   }
+  if(tabataResetBtn.classList.contains('tabataActive')) {
+    clearInterval(tabataStartTextInterval);
+    taFirstStartH2.innerHTML = `Wake your Passion`;
+    tabataStartText();
+    tabataResetBtn.classList.remove('tabataActive');
+  }
 }
-
 function tabataStop() {
-  tabataStartBtn.classList.remove('hidden');
-  tabataStopBtn.classList.add('hidden');
   clearInterval(tabataStartTextInterval)
   clearInterval(tabataTimeLeftStart);
   clearInterval(tabataBreakStart);
 }
-
 function tabataReset() {
+  tabataSettingBtn.classList.add('hidden');
+  tabataStopBtn.classList.add('hidden');
+
   tabataContentBox.classList.add('tabataActive');
   tabataFisrtStartBox.classList.remove('tabataActive');
   tabataTimeLeftBox.classList.remove('tabataActive');
   tabataBreakBox.classList.remove('tabataActive');
 
-
-  tabataSettingBtn.classList.remove('hidden');
-  tabataStartBtn.classList.add('hidden');
-  tabataStopBtn.classList.add('hidden');
   setTimeOnMin = 0;
   setTimeOnSec = 0;
   setTimeOffMin = 0;
@@ -162,7 +159,28 @@ function tabataReset() {
   clearInterval(tabataBreakStart);
   tabataPrintTime();
 }
-
+//show Button logic
+tabataSettingBtn.addEventListener('click', function() {
+  tabataSettingBtn.classList.add('hidden');
+  tabataStartBtn.classList.remove('hidden');
+});
+tabataStartBtn.addEventListener('click', function() {
+  tabataStartBtn.classList.add('hidden');
+  tabataStopBtn.classList.remove('hidden');
+});
+tabataStopBtn.addEventListener('click', function() {
+  tabataStopBtn.classList.add('hidden');
+  tabataStartBtn.classList.remove('hidden');
+});
+tabataResetBtn.addEventListener('click', function() {
+  tabataSettingBtn.classList.remove('hidden');
+  tabataStartBtn.classList.add('hidden');
+  tabataStopBtn.classList.add('hidden');
+});
+tabataResetBtn.addEventListener('click', function() {
+  tabataResetBtn.classList.add('tabataActive');
+})
+//-------------------------------------------------------
 
 //Tabata Timer Start Logic
 let tabataStartTextInterval;
@@ -179,9 +197,9 @@ function tabataStartText() {
   taStartNumber = parseInt(tabataStartNumber);
 
     tabataStartTextInterval = setInterval(function() {
-    taStartNumber--;
     taFirstStartH2.innerHTML = `${taStartNumber}`;
-
+    taStartNumber--;
+    
     if(taStartNumber <= 0) {
       clearInterval(tabataStartTextInterval);
       tabataFisrtStartBox.classList.remove('tabataActive');
