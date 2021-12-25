@@ -17,7 +17,7 @@ a {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* navbar (width : 100% height : 20%) */
@@ -209,7 +209,6 @@ a {
 #timer__content h2 {
   margin: 10px 0;
   font-family: "Shadows Into Light", cursive;
-
   font-size: 60px;
 }
 
@@ -278,51 +277,143 @@ a {
 /* Tabata */
 
 #tabata__clock__content {
+  background-color: rgb(36, 36, 36);
   width: 80%;
   height: 100%;
-  margin: 0%;
-  padding: 0;
-  background-color: rgb(36, 36, 36);
-  flex-direction: column;
+  margin: auto;
+  padding-top: 1%;
+  border: 1px solid beige;
+  border-radius: 10px;
+}
+
+#tabata__clock__content h1 {
+  margin: 10px 0 0 0;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 60px;
 }
 
 #tabata__container {
   width: 100%;
   height: 80%;
-  margin: 0;
+  margin: auto;
   padding: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
 .tabata__content {
-  width: 40%;
-  height: 50%;
-  margin: 0 2%;
+  width: 68%;
+  height: 80%;
+  margin: 10px 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid beige;
+  border: 3px dotted beige;
   border-radius: 10px;
+  background-color: #34495e;
 }
 
-.tabata__break {
-  width: 45%;
-  height: 60%;
+.tabata__setting {
+  width: 28%;
+  height: 80%;
+  margin: 10px 5px;
+  border: 3px dotted beige;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #34495e;
+}
+
+.tabata__setting h2 {
+  margin: 10px 0;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 25px;
+}
+
+.tabata__setting div {
+  width: 90%;
+  height: 25%;
+  margin: 10px 0 10px 0;
+  padding-top: 1.5%;
+  border: 1px solid white;
+  border-radius: 10px;
+  background-color: #002c58;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+.tabata__setting p {
+  font-size: 1.5em;
+  margin: 5px;
+  padding: 0;
+}
+.tabata__setting input {
+  width: 60px;
+  height: 25px;
+  margin: 5px 0;
+  text-align: center;
+  padding: 5px;
+  background-color: black;
+  color: wheat;
+  font-size: 20px;
+}
+
+.tabata__break,
+.tabata__timeleft,
+.tabata__round {
+  width: 30%;
+  height: 90%;
   border: 1px solid beige;
+  border-radius: 10px;
   margin: 0 2% 0 3%;
   padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #002c58;
+  font-size: 20px;
+  font-family: "Shadows Into Light", cursive;
 }
 
-.tabata__round {
-  width: 45%;
-  height: 60%;
+#tabata__firstStart {
+  width: 100%;
+  height: 90%;
   border: 1px solid beige;
-  margin: 0 3% 0 2%;
+  border-radius: 10px;
+  margin: 0 2% 0 3%;
+  padding: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #002c58;
 }
 
 .tabata__btn {
   width: 100%;
-  height: 20%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabata__btn button {
+  margin: 0 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Shadows Into Light", cursive;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+}
+
+.tabata__btn button:hover {
+  color: red;
 }

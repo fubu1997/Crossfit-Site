@@ -44,7 +44,7 @@ function tabataShowContentAll() {
 //Print Time
 function tabataPrintTime() {
   taTimeLeftClock.innerHTML = `${setTimeOnMin<10?`0${setTimeOnMin}`:setTimeOnMin} : ${setTimeOnSec<10?`0${setTimeOnSec}`:setTimeOnSec}`
-  taTimeBreakClock.innerHTML = `${setTimeOffMin<10?`0${setTimeOffMin}`:setTimeOnMin} : ${setTimeOffSec<10?`0${setTimeOffSec}`:setTimeOffSec}`
+  taTimeBreakClock.innerHTML = `${setTimeOffMin<10?`0${setTimeOffMin}`:setTimeOffMin} : ${setTimeOffSec<10?`0${setTimeOffSec}`:setTimeOffSec}`
   taCurrentRound.innerHTML = `${taCurrentRoundFisrt<10?`0${taCurrentRoundFisrt}`:taCurrentRoundFisrt}`
   taAllRound.innerHTML = `${setRound<10?`0${setRound}`:setRound}`
 }
@@ -161,6 +161,15 @@ function tabataReset() {
 }
 //show Button logic
 tabataSettingBtn.addEventListener('click', function() {
+  if(setTimeOnMin&&setTimeOnSec&&setTimeOffMin&&setTimeOffSec&&setRound == 0) {
+    return;
+  }
+  if(setTimeOnMin==0 && setTimeOnSec ==0) {
+    return;
+  }
+  if(setRound==0) {
+    return;
+  }
   tabataSettingBtn.classList.add('hidden');
   tabataStartBtn.classList.remove('hidden');
 });
